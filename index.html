@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>San Valentín 💖</title>
+
+<style>
+body {
+  background: linear-gradient(#ffe6ee, #fff);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  padding: 20px;
+}
+
+h2 {
+  color: #d6336c;
+  font-size: 28px;
+}
+
+.lirios {
+  font-size: 18px;
+  color: #555;
+  margin: 10px 0;
+}
+
+.vacas img {
+  width: 130px;
+  margin: 10px;
+}
+
+.botones {
+  position: relative;
+  height: 120px;
+}
+
+button {
+  font-size: 18px;
+  padding: 12px 30px;
+  margin: 15px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+#si {
+  background: #ff4d6d;
+  color: white;
+}
+
+#no {
+  background: #ccc;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+/* Corazones */
+.corazon {
+  position: fixed;
+  bottom: -20px;
+  font-size: 24px;
+  animation: flotar 6s linear infinite;
+}
+
+@keyframes flotar {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<h2>¿Jazmín, serías mi cita de San Valentín? 💘</h2>
+
+<p class="lirios">🌸 Sos tan hermosa como un lirio en primavera 🌸</p>
+
+<div class="vacas">
+  <img src="vaca.gif">
+  <img src="vaca.gif">
+  <img src="vaca.gif">
+</div>
+
+<p class="lirios">🤍 Cada lirio representa lo especial que sos 🤍</p>
+
+<div class="botones">
+  <button id="si" onclick="aceptar()">Sí 💖</button>
+  <button id="no" onclick="huir()">No 😢</button>
+</div>
+
+<p class="lirios">🌸 Los lirios florecen… como mis ganas de invitarte 🌸</p>
+
+<!-- 🎵 AUDIO -->
+<audio id="musica" controls loop>
+  <source src="nobia.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let escalaNo = 1;
+
+function aceptar() {
+  const musica = document.getElementById("musica");
+  musica.play();
+  setTimeout(() => {
+    window.location.href = "final.html";
+  }, 500);
+}
+
+function huir() {
+  const no = document.getElementById("no");
+  const musica = document.getElementById("musica");
+  musica.play();
+
+  escalaNo -= 0.15;
+  if (escalaNo < 0.3) escalaNo = 0.3;
+
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 80 - 40;
+
+  no.style.transform = `translate(${x}px, ${y}px) scale(${escalaNo})`;
+}
+
+// Corazones
+function crearCorazon() {
+  const c = document.createElement("div");
+  c.className = "corazon";
+  c.innerHTML = "💖";
+  c.style.left = Math.random() * 100 + "vw";
+  c.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.body.appendChild(c);
+  setTimeout(() => c.remove(), 6000);
+}
+
+setInterval(crearCorazon, 400);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>💖 Para Jazmín</title>
+
+<style>
+body {
+  background: radial-gradient(circle at top, #1a001f, #000);
+  color: #ffd6e8;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Contenedor tipo Star Wars */
+.escena {
+  position: absolute;
+  bottom: -100%;
+  width: 100%;
+  text-align: center;
+  animation: subir 45s linear forwards;
+  padding: 0 20px;
+}
+
+@keyframes subir {
+  0% { bottom: -100%; opacity: 1; }
+  100% { bottom: 120%; opacity: 0; }
+}
+
+h1 {
+  font-size: 28px;
+  color: #ff9acb;
+  margin-bottom: 30px;
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* Corazones flotando */
+.corazon {
+  position: fixed;
+  bottom: -20px;
+  font-size: 22px;
+  animation: flotar 6s linear infinite;
+}
+
+@keyframes flotar {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* Música */
+.musica {
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+</style>
+</head>
+
+<body>
+
+<!-- TEXTO POÉTICO -->
+<div class="escena">
+
+  <h1>✨ Para Jazmín ✨</h1>
+
+  <p>
+    Hay ojos que se miran…<br>
+    y hay ojos que se quedan.
+  </p>
+
+  <p>
+    Tus ojos cafés,<br>
+    grandes y hermosos,<br>
+    no solo miran…<br>
+    <strong>encantan.</strong>
+  </p>
+
+  <p>
+    En ellos vive la calma,<br>
+    la ternura,<br>
+    y un brillo que no se explica.
+  </p>
+
+  <p>
+    Son mi verdadero delirio,<br>
+    porque cuando los pienso,<br>
+    todo lo demás desaparece.
+  </p>
+
+  <p>
+    Si supieras cuántas veces<br>
+    me pierdo imaginando<br>
+    una sonrisa naciendo desde ellos…
+  </p>
+
+  <p>
+    Tal vez por eso los lirios florecen,<br>
+    porque saben que existen<br>
+    unos ojos así.
+  </p>
+
+  <p>
+    Y si hoy estás leyendo esto,<br>
+    es porque esos ojos cafés<br>
+    ya cambiaron mi universo.
+  </p>
+
+  <p>💖 💖 💖</p>
+
+</div>
+
+<!-- MÚSICA -->
+<div class="musica">
+  <audio controls autoplay loop>
+    <source src="nobia.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<!-- CORAZONES -->
+<script>
+function crearCorazon() {
+  const c = document.createElement("div");
+  c.className = "corazon";
+  c.innerHTML = "💖";
+  c.style.left = Math.random() * 100 + "vw";
+  c.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.body.appendChild(c);
+  setTimeout(() => c.remove(), 6000);
+}
+
+setInterval(crearCorazon, 400);
+</script>
+
+</body>
+</html>
